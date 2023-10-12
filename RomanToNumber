@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class RomanToRealNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        //Asking the user to enter the Roman value
+        System.out.print("Enter a Roman Number: ");
+        
+        //Storing the roman values into the R variable
+        String R = scanner.nextLine();
+        
+        //Calling the method to convert Roman value into number and store the value into variable
+        int Number = R_to_Number(R);
+        
+        //Printing the Value
+        System.out.println("The equievelent Roman number is "+Number);
+    }
+    //Method to find the value of Roman number
+    public static int R_to_Number(String Roman) {
+        int sum = 0;
+        
+        //Traversing String from last index
+        for (int i=Roman.length()-1;i>=0;i--) {
+            
+            //Extracting each character of String
+            char ch = Roman.charAt(i);
+            int value=0;
+            
+            //Description of all roman values 
+            switch (ch) {
+            case 'I':value= 1;break;
+            case 'V':value= 5;break;
+            case 'X':value= 10;break;
+            case 'L':value= 50;break;
+            case 'C':value= 100;break;
+            case 'D':value= 500;break;
+            case 'M': value= 1000;break;
+            default:value=  0;break; //invalid input 
+        }
+        
+            //Checking last value is greater than or equal to its previous one 
+             if(value>=sum){
+                
+                 //If grater then add the value
+                 sum+=value;
+             }
+             
+             //Checking last value is smaller than its previous one 
+             else if(value<sum){
+                 
+                 //Reduce the value by its previous one 
+                 sum -=value;
+             }
+             
+
+             
+        }
+        //returning the equievelent value 
+        return sum;
+    }
+
+    
+}
