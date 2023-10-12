@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Pangram {
+    public static void main(String[] args) {
+        Scanner S = new Scanner(System.in);
+
+        // Taking the user input as a string
+        System.out.print("Enter a sentence: ");
+        
+        // Storing the sentence by converting the each character into lower case 
+        String input = S.nextLine().toLowerCase(); 
+
+        //calling the method to check whether the given statement is Pangram or not
+         checkPangramStatement(input);
+
+    }
+
+       public static void checkPangramStatement(String statement) {
+        
+        //creating the array of boolean type to mark presence of each character
+        boolean[] character = new boolean[26];  
+
+        // Traverse each character throught the given statement
+        for (int i = 0; i < statement.length(); i++) {
+            
+            //each character stored in variable ch
+            char ch = statement.charAt(i);
+            
+            //Checking each Character presence 
+            if (Character.isLetter(ch)) {
+                int j = ch - 'a'; 
+                
+                //Marking each place by true if character present within a to z
+                character[j] = true;
+            }
+        }
+
+        //  check whether all character are counted  
+        for (boolean x : character) {
+            
+            //if character not present then it marked as flase
+            if (!x) {
+                boolean result =false;  
+            }
+        }
+
+         boolean result =true; 
+         
+         //If all character not be present in the limit a to z then it is non pangram otherwise it is pangram
+         if(result == false ){
+             System.out.println("Given input is not pangram");
+         }
+         else {
+              System.out.println("Given input is pangram");
+         }
+       }
+    
+}
