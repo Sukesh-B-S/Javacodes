@@ -1,0 +1,36 @@
+import java.util.*;
+public class ShuffleApp {
+    public static void main(String[] args) {
+        
+        //creatng the array with initialising its values
+        int[] array = {1, 2, 3, 4, 5, 6, 7};
+        
+        //Calling the method to shuffle the elements and stord it in the 'Arr' Array      
+        int Arr[]=Shuffled(array);
+        
+        //Printing the shuffled array
+        System.out.println("Shuffled array: ");
+        //Traversing throught out the array
+        for (int x : Arr) {
+            System.out.print(x + " ");
+        }
+    }
+        
+        //Method for shuffling the array
+    public static int[] Shuffled(int[] ARR) {
+         
+        //Traversing throught out the array
+        for ( int i=0;i<ARR.length;i++) {
+             // creating the object of Random class
+           Random r=new Random();
+           //storing the randomly created index value between 1 to 7into the variable j
+          int j= r.nextInt(ARR.length);
+
+            // Swap the elements at i and j
+            int temp = ARR[i];
+            ARR[i] = ARR[j];
+            ARR[j] = temp;
+        }
+        return ARR;
+    }
+}
